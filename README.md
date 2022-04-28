@@ -2,9 +2,17 @@
 
 USTC CODH 课程的 CPU Verilog 代码的自动化测试
 
+目前确认支持 Ubuntu 系统，理论上别的 Linux 发行版问题不大
+
 ## 依赖
 
 安装 Verilator
+
+Ubuntu 用户可以直接：
+
+```
+sudo apt install verilator
+```
 
 > 注意事项，来源 [fdu-ics](https://fducslg.github.io/ICS-2021Spring-FDU/misc/verilate.html)
 > Verilator 目前依然有许多不足之处。首先 Verilator 对 SystemVerilog 的语言支持还非常不完整，比如 unpacked 结构体是不支持的。此外 `interface`、`package` 这些关键字虽然支持，但是在功能上还不够完善。为了避免你的 SystemVerilog 代码不能通过 Verilator 的综合和不正确的仿真行为，请**尽量避免**以下事项：
