@@ -38,7 +38,11 @@ sudo apt install verilator
 - 存在文件名 cpu.v ，包含 cpu 模块
 - 尽量每个模块单独一个文件
 - 模块名一定要与文件名相同，不然可能找不到
-- 请注意更改 ip 核模块名为 `dist_ir` （指令寄存器）和 `dist_mem`（数据寄存器）
+- 请注意更改 ip 核模块名为 `dist_ir` （指令寄存器）和 `dist_mem`（数据寄存器），约定这两个都是 256*32 的分布式，指令寄存器单端口，数据寄存器因为 debug_bus 的缘故是双端口
+- .text 从 0x3000 开始， .data 从 0x0000 开始
+- **请务必实现 bne**
+
+以上大部分约定来源于之前的 lab4，这里沿袭了传统
 
 随后可以在当前目录运行 python 脚本：
 
@@ -46,7 +50,21 @@ sudo apt install verilator
 python judge.py
 ```
 
-目前仅支持 `sort_vcd`，代表测试排序并生成 vcd 文件
+目前支持的 testcase:
+
+- `sort_vcd`，代表测试排序并生成 vcd 文件
+- `bypass`，这是一个系列（`bypass` 本身没有意义），具体每个 testcase 的含义参见 [这里](https://github.com/cs3001h/cs3001h.tests/blob/main/isa/rv32mi/bypass.S) ，其中每个宏的第一个参数是 testcase 的编号，拆分的原因是考虑指令寄存器 256*32 的限制
+  - `bypass1` test2 到 test22
+  - `bypass2` test23 到 test45
+  - `bypass3` test46 到 test64
+  - `bypass4` test65 到 test83
+  - `bypass5` test84 到 test94
+
+## 定制
+
+如果本项目的一些配置不满足你的要求（例如你的存储器比较大，不止 256，可以自行修改 headers 文件夹内的 dist_ir.v 和 dist_mem.v）
+
+本项目的基本配置文件都在 headers 下
 
 ## 贡献
 
