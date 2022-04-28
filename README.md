@@ -39,3 +39,11 @@ python judge.py
 ```
 
 目前仅支持 `sort_vcd`，代表测试排序并生成 vcd 文件
+
+## 贡献
+
+本项目对于每个测试需要配套编写 cpu_*.cpp, *_data.coe 和 *_text.coe
+
+之后即可在 python 脚本 repl 流程中载入
+
+欢迎 pr
