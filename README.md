@@ -14,7 +14,8 @@ Ubuntu 用户可以直接：
 sudo apt install verilator
 ```
 
-> 注意事项，来源 [fdu-ics](https://fducslg.github.io/ICS-2021Spring-FDU/misc/verilate.html)
+Verilator 注意事项，来源 [fdu-ics](https://fducslg.github.io/ICS-2021Spring-FDU/misc/verilate.html) :
+
 > Verilator 目前依然有许多不足之处。首先 Verilator 对 SystemVerilog 的语言支持还非常不完整，比如 unpacked 结构体是不支持的。此外 `interface`、`package` 这些关键字虽然支持，但是在功能上还不够完善。为了避免你的 SystemVerilog 代码不能通过 Verilator 的综合和不正确的仿真行为，请**尽量避免**以下事项：
 >
 > - 不可综合的语法，例如延时。
@@ -49,6 +50,8 @@ sudo apt install verilator
 ```bash
 python judge.py
 ```
+
+如果因为语法原因编译错误请检查提示，其实 Verilator 当 linter 提示作用挺强的
 
 目前支持的 testcase:
 
