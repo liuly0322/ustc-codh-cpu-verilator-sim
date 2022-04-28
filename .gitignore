@@ -1,3 +1,4 @@
 obj_dir/
-src/cpu.vcd
+cpu.vcd
 .vscode/
+cs3001h.tests

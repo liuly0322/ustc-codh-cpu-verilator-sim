@@ -68,6 +68,8 @@ int main(int argc, char** argv) {
     }
 
     // 清理工作
+    cout << "未能在给定周期内完成排序" << endl;
+    cout << "当前周期：" << main_time << endl;
     tfp->close();
     exit(0);
 }
