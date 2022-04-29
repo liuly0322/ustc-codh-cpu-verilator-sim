@@ -39,7 +39,9 @@ Verilator 注意事项，来源 [fdu-ics](https://fducslg.github.io/ICS-2021Spri
 - 存在文件名 cpu.v ，包含 cpu 模块
 - 尽量每个模块单独一个文件
 - 模块名一定要与文件名相同，不然可能找不到
-- 请注意更改 ip 核模块名为 `dist_ir` （指令寄存器）和 `dist_mem`（数据寄存器），约定这两个都是 256*32 的分布式，指令寄存器单端口，数据寄存器因为 debug_bus 的缘故是双端口
+- 请注意更改 ip 核模块名为 `dist_ir` （指令寄存器）和 `dist_mem`（数据寄存器），约定这两个都是 256\*32 的分布式存储器 ip 核
+  - 如果你不想改变你的源文件，可以把 headers 下的 dist_ir.v 和 dist_mem.v 的文件名以及文件内部的模块名对应更改为你的 ip 核模块名
+  - 关于 ip 核，请确认：指令寄存器单端口，数据寄存器因为 debug_bus 的缘故是双端口，端口信息可以到具体文件确认
 - .text 从 0x3000 开始， .data 从 0x0000 开始
 - **请务必实现 bne**
 
@@ -74,7 +76,11 @@ python judge.py
 
 ## 贡献
 
-本项目对于每个测试需要配套编写 cpu_*.cpp, *_data.coe 和 *_text.coe
+本项目的基本思路是每个周期利用 `chk_addr` 查询，并读出对应的 `chk_data`，进行正确性验证
+
+本项目对于每个测试需要配套编写 cpu\_\*.cpp, \*\_data.coe 和 \*\_text.coe
+
+关于编写测试样例，可以参考[这篇](http://www.sunnychen.top/2019/07/25/%E8%B7%A8%E8%AF%AD%E8%A8%80%E7%9A%84Verilator%E4%BB%BF%E7%9C%9F%EF%BC%9A%E4%BD%BF%E7%94%A8%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1/) verilator 的使用文章
 
 之后即可在 python 脚本 repl 流程中载入
 
