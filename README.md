@@ -64,6 +64,7 @@ python judge.py
   - `bypass3` test46 到 test64
   - `bypass4` test65 到 test83
   - `bypass5` test84 到 test94
+- `no_hazard` 基本指令功能测试，~~如果你能找到这个仓库但是找不到测试案例含义可以戳我~~
 
 ## 定制
 
