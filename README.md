@@ -51,12 +51,14 @@ Verilator 注意事项，来源 [fdu-ics](https://fducslg.github.io/ICS-2021Spri
 python judge.py
 ```
 
+运行之后会输出结果提示，并且在项目目录下生成 `cpu.vcd`，供 debug 查看（如果需要）
+
 如果因为语法原因编译错误请检查提示，其实 Verilator 当 linter 提示作用挺强的
 
 目前支持的 testcase:
 
-- `sort_vcd`，代表测试排序并生成 vcd 文件
-- `bypass`，这是一个系列（`bypass` 本身没有意义），具体每个 testcase 的含义参见 [这里](https://github.com/cs3001h/cs3001h.tests/blob/main/isa/rv32mi/bypass.S) ，其中每个宏的第一个参数是 testcase 的编号，拆分的原因是考虑指令寄存器 256*32 的限制，也会生成对应 vcd 文件，想 debug 可以结合波形查看
+- `sort_vcd`，代表测试排序
+- `bypass`，这是一个系列（`bypass` 本身没有意义），具体每个 testcase 的含义参见 [这里](https://github.com/cs3001h/cs3001h.tests/blob/main/isa/rv32mi/bypass.S) ，其中每个宏的第一个参数是 testcase 的编号，拆分的原因是考虑指令寄存器 256\*32 的限制
   - `bypass1` test2 到 test22
   - `bypass2` test23 到 test45
   - `bypass3` test46 到 test64
@@ -75,4 +77,4 @@ python judge.py
 
 之后即可在 python 脚本 repl 流程中载入
 
-欢迎 pr
+欢迎 issue/pr
