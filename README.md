@@ -43,7 +43,7 @@ Verilator 注意事项，来源 [fdu-ics](https://fducslg.github.io/ICS-2021Spri
   - 如果你不想改变你的源文件，可以把 headers 下的 dist_ir.v 和 dist_mem.v 的文件名以及文件内部的模块名对应更改为你的 ip 核模块名
   - 关于 ip 核，请确认：指令寄存器单端口，数据寄存器因为 debug_bus 的缘故是双端口，端口信息可以到具体文件确认
 - .text 从 0x3000 开始， .data 从 0x0000 开始
-- **请务必实现 bne**
+- **请务必实现 bne（如果需要评测 bypass）**
 
 以上大部分约定来源于之前的 lab4，这里沿袭了传统
 
@@ -57,6 +57,8 @@ python judge.py
 
 如果因为语法原因编译错误请检查提示，其实 Verilator 当 linter 提示作用挺强的
 
+因为目前还没有清除前一次的可执行文件，所以如果编译错误可能会隐藏在 console 的输出中，需要检查
+
 目前支持的 testcase:
 
 - `sort_vcd`，代表测试排序
@@ -66,6 +68,7 @@ python judge.py
   - `bypass3` test46 到 test64
   - `bypass4` test65 到 test83
   - `bypass5` test84 到 test94
+  **评测 bypass 需要实现 bne**
 - `no_hazard` 基本指令功能测试，~~如果你能找到这个仓库但是找不到测试案例含义可以戳我~~
 
 ## 定制
