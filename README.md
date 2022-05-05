@@ -62,7 +62,7 @@ python judge.py
 目前支持的 testcase:
 
 - `sort_vcd`，代表测试排序
-- `bypass`，这是一个系列（`bypass` 本身没有意义），具体每个 testcase 的含义参见 [这里](https://github.com/cs3001h/cs3001h.tests/blob/main/isa/rv32mi/bypass.S) ，其中每个宏的第一个参数是 testcase 的编号，拆分的原因是考虑指令寄存器 256\*32 的限制
+- `bypass`，这是一个系列（`bypass` 本身没有意义），具体每个 testcase 的含义参见 [这里](https://github.com/cs3001h/cs3001h.tests/blob/main/isa/rv32mi/bypass.S) ，对应的 [汇编代码](https://github.com/liuly0322/ustc-cod-verilator/blob/master/bypass.dump) ，其中每个宏的第一个参数是 testcase 的编号，拆分的原因是考虑指令寄存器 256\*32 的限制
   - `bypass1` test2 到 test22
   - `bypass2` test23 到 test45
   - `bypass3` test46 到 test64
